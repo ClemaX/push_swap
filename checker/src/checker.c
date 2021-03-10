@@ -1,9 +1,9 @@
 #include <stack.h>
+#include <libft.h>
 
-#include <stdio.h>
 void	print_val(t_stack_val val)
 {
-	dprintf(1, "%hhu, ", val);
+	ft_dprintf(1, "%hhu, ", val);
 }
 
 int	main(int ac, char const **av)
@@ -15,11 +15,11 @@ int	main(int ac, char const **av)
 		stack = stack_load(&av[1]);
 		if (!stack)
 		{
-			dprintf(2, "Could not load stack!\n");
+			ft_dprintf(STDERR_FILENO, "Could not load stack!\n");
 			return (1);
 		}
 		stack_iter(stack, &print_val);
-		dprintf(1, "\n");
+		ft_dprintf(STDOUT_FILENO, "\n");
 	}
 	return (0);
 }

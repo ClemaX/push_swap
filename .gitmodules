@@ -1,3 +1,6 @@
 [submodule "libstack"]
 	path = libstack
 	url = https://github.com/ClemaX/libstack.git
+[submodule "libft"]
+	path = libft
+	url = https://github.com/ClemaX/libft.git

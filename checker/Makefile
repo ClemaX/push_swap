@@ -13,7 +13,7 @@ OBJDIR = obj
 BINDIR = .
 
 # Library dependencies
-LIBS = $(addprefix $(LIBDIR), /libstack/libstack.a)
+LIBS = $(addprefix $(LIBDIR)/, libstack/libstack.a libft/libft.a)
 
 LIBDIRS = $(dir $(LIBS))
 LIBINCS = $(addsuffix $(INCDIR), $(LIBDIRS))
@@ -66,15 +66,15 @@ $(BINDIR)/$(NAME): $(OBJS) | $(BINDIR) $(LIBS)
 
 # Remove temporary objects
 clean:
-	$(foreach dir, $(LIBDIRS),\
-		@echo "MK $(addprefix -C, $(LIBDIRS)) $@" && make -C $(dir) $@ && ):
+	$(foreach libdir, $(LIBDIRS),\
+		echo "MK -C $(libdir) $@" && make -C $(libdir) $@ && ):
 	@echo "RM $(OBJDIR)"
 	rm -rf "$(OBJDIR)"
 
 # Remove all binaries
 fclean: clean
-	$(foreach dir, $(LIBDIRS),\
-		@echo "MK $(addprefix -C , $(dir $(LIBS))) $@" && make -C $(dir) $@ && ):
+	$(foreach libdir, $(LIBDIRS),\
+		echo "MK -C $(libdir) $@" && make -C $(libdir) $@ && ):
 	@echo "RM $(BINDIR)/$(NAME)"
 	rm -f "$(BINDIR)/$(NAME)"
 	@rmdir "$(BINDIR)" 2>/dev/null && echo "RM $(BINDIR)" || :
