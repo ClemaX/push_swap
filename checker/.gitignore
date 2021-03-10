@@ -1,5 +1,5 @@
 # C/CPP Binaries
-skeleton
+checker
 obj/
 *.out
 *.o
