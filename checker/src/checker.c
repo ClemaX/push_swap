@@ -58,10 +58,7 @@ int	main(int ac, char const **av)
 	{
 		input_stack = stack_load(&av[1]);
 		if (!input_stack)
-		{
-			ft_dprintf(STDERR_FILENO, "Could not load stack!\n");
 			return (1);
-		}
 		checker_exec(STDIN_FILENO, input_stack);
 	}
 	return (0);
